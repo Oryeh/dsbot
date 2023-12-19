@@ -21,6 +21,44 @@
         </div>
     </section>
 
+    <script>
+       
+        function handleDiscordRedirect() {
+           
+            console.log('Authorization callback:', window.location.search);
+            
+        }
+
+        
+        if (window.location.pathname === '/callback') {
+            handleDiscordRedirect();
+        }
+
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const infoBox = document.getElementById('infoBox');
+            infoBox.style.display = 'block';
+
+            for (let i = 0; i < 50; i++) {
+                createSnowflake();
+            }
+        });
+
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+
+            const size = Math.random() * 3 + 1; 
+            snowflake.style.width = `${size}px`;
+            snowflake.style.height = `${size}px`;
+
+            snowflake.style.left = `${Math.random() * window.innerWidth}px`;
+            snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`; 
+
+            document.body.appendChild(snowflake);
+        }
+    </script>
+
     <script src="script.js"></script>
 </body>
 </html>
